@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ms.marquee.MarqueeView
+        android:id="@+id/marquee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:direction="LeftToRight"
+        app:duration="1000"
+        app:ellipsize="end"
+        app:gravity="left"
+        app:interval="3000"
+        app:singleLine="true"
+        app:textColor="#666666"
+        app:textSize="12sp" />
+
+</LinearLayout>

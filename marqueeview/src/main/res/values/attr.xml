@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MarqueeViewStyle">
+        <attr name="interval" format="integer" />
+        <attr name="duration" format="integer" />
+        <attr name="textSize" format="dimension|reference" />
+        <attr name="textColor" format="color|reference" />
+        <attr name="singleLine" format="boolean" />
+        <attr name="gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="direction">
+            <enum name="BottomToTop" value="0" />
+            <enum name="TopToBottom" value="1" />
+            <enum name="RightToLeft" value="2" />
+            <enum name="LeftToRight" value="3" />
+        </attr>
+        <attr name="ellipsize">
+            <enum name="marquee" value="3" />
+            <enum name="middle" value="2" />
+            <enum name="start" value="1" />
+            <enum name="none" value="0" />
+            <enum name="end" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>
