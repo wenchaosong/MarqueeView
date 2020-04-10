@@ -3,14 +3,9 @@
 ## 使用步骤
 
 #### Step 1.
-```groovy
-repositories {
-        jcenter()
-        maven { url 'https://jitpack.io' }
-    }
-
+```
 dependencies{
-    compile 'com.github.wenchaosong:MarqueeView:1.0.0'
+    compile 'com.ms:marqueeview:1.0.0'
 }
 ```
 或者引用本地lib
@@ -24,14 +19,14 @@ compile project(':marqueeview')
         android:id="@+id/marquee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:direction="LeftToRight"
-        app:duration="1000"
-        app:ellipsize="end"
-        app:gravity="left"
-        app:interval="3000"
-        app:singleLine="true"
-        app:textColor="#666666"
-        app:textSize="12sp" />
+        app:mv_direction="LeftToRight"
+        app:mv_duration="1000"
+        app:mv_ellipsize="end"
+        app:mv_gravity="left"
+        app:mv_interval="3000"
+        app:mv_singleLine="true"
+        app:mv_textColor="#666666"
+        app:mv_textSize="12sp" />
 ```
 
 #### Step 3.
