@@ -1,25 +1,30 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.wenchaosong'
 android {
-    compileSdkVersion 26
-    buildToolsVersion "28.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+    lintOptions {
+        abortOnError false
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'songwenchao0714'
+    groupId = 'com.ms'
+    artifactId = 'marqueeview'
+    publishVersion = '1.0.0'
+    desc = 'A simple marqueeview lib'
+    website = 'https://github.com/wenchaosong/MarqueeView'
 }

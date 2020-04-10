@@ -17,7 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by songwenchao
+ * Created by SongWenChao
+ * 自动轮播控件
  */
 public class MarqueeView extends ViewFlipper {
 
@@ -27,7 +28,7 @@ public class MarqueeView extends ViewFlipper {
     private int textColor;
     private boolean singleLine = false;
 
-    private int gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
+    private int gravity = Gravity.START | Gravity.CENTER_VERTICAL;
     private static final int GRAVITY_LEFT = 0;
     private static final int GRAVITY_CENTER = 1;
     private static final int GRAVITY_RIGHT = 2;
@@ -64,30 +65,30 @@ public class MarqueeView extends ViewFlipper {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MarqueeViewStyle, defStyleAttr, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.MarqueeView, defStyleAttr, 0);
 
-        interval = typedArray.getInt(R.styleable.MarqueeViewStyle_interval, 3000);
-        animDuration = typedArray.getInt(R.styleable.MarqueeViewStyle_duration, 1000);
-        singleLine = typedArray.getBoolean(R.styleable.MarqueeViewStyle_singleLine, false);
-        textSize = typedArray.getDimensionPixelSize(R.styleable.MarqueeViewStyle_textSize, px2sp(context, 13));
-        textColor = typedArray.getColor(R.styleable.MarqueeViewStyle_textColor, Color.parseColor("#ffffffff"));
-        ellipsize = typedArray.getInt(R.styleable.MarqueeViewStyle_ellipsize, ELLIPSIZE_NONE);
+        interval = typedArray.getInt(R.styleable.MarqueeView_mv_interval, 3000);
+        animDuration = typedArray.getInt(R.styleable.MarqueeView_mv_duration, 1000);
+        singleLine = typedArray.getBoolean(R.styleable.MarqueeView_mv_singleLine, false);
+        textSize = typedArray.getDimensionPixelSize(R.styleable.MarqueeView_mv_textSize, px2sp(context, 13));
+        textColor = typedArray.getColor(R.styleable.MarqueeView_mv_textColor, Color.parseColor("#ffffffff"));
+        ellipsize = typedArray.getInt(R.styleable.MarqueeView_mv_ellipsize, ELLIPSIZE_NONE);
 
-        int gravityType = typedArray.getInt(R.styleable.MarqueeViewStyle_gravity, GRAVITY_LEFT);
+        int gravityType = typedArray.getInt(R.styleable.MarqueeView_mv_gravity, GRAVITY_LEFT);
         switch (gravityType) {
             case GRAVITY_LEFT:
-                gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
+                gravity = Gravity.START | Gravity.CENTER_VERTICAL;
                 break;
             case GRAVITY_CENTER:
                 gravity = Gravity.CENTER;
                 break;
             case GRAVITY_RIGHT:
-                gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
+                gravity = Gravity.END | Gravity.CENTER_VERTICAL;
                 break;
         }
 
-        hasSetDirection = typedArray.hasValue(R.styleable.MarqueeViewStyle_direction);
-        direction = typedArray.getInt(R.styleable.MarqueeViewStyle_direction, direction);
+        hasSetDirection = typedArray.hasValue(R.styleable.MarqueeView_mv_direction);
+        direction = typedArray.getInt(R.styleable.MarqueeView_mv_direction, direction);
         if (hasSetDirection) {
             switch (direction) {
                 case DIRECTION_BOTTOM_TO_TOP:
@@ -269,5 +270,4 @@ public class MarqueeView extends ViewFlipper {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
-
 }
